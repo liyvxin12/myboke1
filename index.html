@@ -1,94 +1,521 @@
 ﻿<!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8" />
-		<title>我的博客</title>
+		<title>Bootstrap 模板</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- 引入 Bootstrap -->
-		<link href="css/bootstrap.css" rel="stylesheet">
-
+		<link rel="stylesheet" href=" css/bootstrap.css" />
+		<!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+		<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+		<!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
 	</head>
-
 	<body>
-		<div class="jumbotron text-center " style="margin-bottom: 0px;">
-			<h1>欢迎来到我的博客</h1>
-			<p>欢迎大家提出意见和一起交流</p>
-		</div>
-
-		<nav class="navber navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-   						<span class="icon-bar"></span>
-   						<span class="icon-bar"></span>
-   						<span class="icon-bar"></span>
-   					</button>
-					<a class="navbar-brand glyphicon glyphicon-user" href="#">我的博客</a>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li >
-							<a href="#" class="active glyphicon glyphicon-home">主页</a>
-						</li>
-						<li >
-							<a href="/" class="glyphicon glyphicon-book">博客</a>
-						</li>
-						<li >
-							<a href="/" class="glyphicon glyphicon-pencil">随笔</a>
-						</li>
-					</ul>
+		<!--导航栏-->
+		<nav class="nav navbar-inverse navbar-fixed-top">
+			<div class="navbar-header col-sm-2 col-sm-push-1">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
+   				<span class="sr-only">切换导航</span>
+   				<span class="icon-bar"></span>
+   				<span class="icon-bar"></span>
+   				<span class="icon-bar"></span>
+   				<span class="icon-bar"></span>
+   			</button>
+				<a href="#myblog" class="navbar-brand" data-toggle="tab">我的博客</a>
+			</div>
+			<div class="collapse navbar-collapse" id="example-nav-collapse">
+				<ul class="nav navbar-nav nav-tabs">
+					<li class="active">
+						<a href="#home" data-toggle="tab" tabindex="-1">主页</a>
+					</li>
+					<li>
+						<a href="#blog" data-toggle="tab" tabindex="-1">博客</a>
+					</li>
+					<li>
+						<a href="#album" data-toggle="tab" tabindex="-1">个人相册</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							竞技<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="#play" data-toggle="tab" tabindex="-1">LOL</a>
+							</li>
+							<li>
+								<a href="#">王者荣耀</a>
+							</li>
+							<li>
+								<a href="#">NBA</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="container">
+					<div class="row">
+						<form class="navbar-form navbar-right">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">登录</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rejister">注册</button>
+						</form>
+						<div class="col-sm-3">
+							<form class="navbar-form  ">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="请输入关键词" />
+									<button type="button" class="btn btn-default">
+   						<span class="glyphicon glyphicon-search"></span></button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<h2>关于我</h2>
-					<h4>武磊照片</h4>
-					<div><img src='img/91529822720e0cf37b70fda70446f21fbf09aae3.png' /></div>
-				
-				<p>关于我的介绍</p>
-				<h3><a href="#">个人主页</a></h3>
-				<p>大家好我是liyx，，喜欢足球，游戏，电影，编程</p>
-				<ul class="nav nav-pills nav-stacked">
+		<!--登录模态框内容-->
+		<div class="modal" id="login" role="dialog" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="myModalLabel" align="center">登录页面</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="name" class="col-sm-4 control-label">用户名:</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="name" placeholder="请输入用户名" />
+								</div>
+							</div><br />
+							<div class="form-group">
+								<label for="pass" class="col-sm-4 control-label">密码:</label>
+								<div class="col-sm-5">
+									<input type="password" id="pass" class="form-control" placeholder="请输入密码" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-8">
+									<div class="checkbox">
+										<label>
+   					<input type="checkbox"/>记住密码</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-5 col-sm-7">
+									<div class="checkbox">
+										<button type="submit" class="btn btn-primary">登录</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--注册模态框内容-->
+		<div class="modal" id="rejister" role="dialog" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="myModalLabel" align="center">用户注册</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="zname" class="col-sm-3 control-label"><span style="color: red;"><big>*&nbsp;</big></span>用户名:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="zname" placeholder="6~18个字符，可使用字母、数字,需以字母开头" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="zpass" class="col-sm-3 control-label"><span style="color: red;"><big>*&nbsp;</big></span>密码:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="zpass" placeholder="6~16个字符，区分大小写" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="repass" class="control-label col-sm-3"><span style="color: red;"><big>*&nbsp;</big></span>确认密码:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="repass" placeholder="请再次填写密码" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="zemail"><span style="color: red;"><big>*&nbsp;</big></span>邮件地址:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="zemali" placeholder="请输入邮件地址" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="phone"><span style="color: red;"><big>*&nbsp;</big></span>手机号码:</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="phone" placeholder="请输入手机号码" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-5 col-sm-7">
+									<div class="checkbox">
+										<button type="submit" class="btn btn-primary">立即注册</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="myTabContent" class="tab-content">
+			<!--我的博客-->
+			<div class="tab-pane fade " id="myblog" style="margin: 55px 0px 0px 0px;">
+				<h1>中国加油</h1>
+			</div>
+			<!--主页-->
+			<div class="tab-pane fade in active" id="home">
+				<div class="jumbotron text-center" style="margin: 50px 0px 0px 0px;">
+					<!--切换内容-->
+					<div class="container">
+						<h1>欢迎来到星河的博客</h1>
+						<p>非常乐意和大家一起交流</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3 col-sm-offset-2 ">
+						<h2>关于我</h2>
+						<h4>我喜欢的球星</h4>
+						<div class="thumbnail">
+							<img src=" img/91529822720e0cf37b70fda70446f21fbf09aae3.png" width="300px" height="240px" align="center" />
+						</div>
+						<p>武磊，1991年11月19日出生于中国江苏省南京市，祖籍济南平阴， [1]  中国足球运动员，司职前锋，现效力于西甲皇家西班牙人足球俱乐部。</p>
+						<ul class="nav nav-pills text-left">
+							<li>
+								<a href="#">
+									<h3>我的主页</h3></a>
+							</li>
+						</ul>
+						<p>性格积极乐观，爱憎分明，而且十分重视伙伴，不甘屈居于他人之下，对任何危险的事物都超感兴趣。</p>
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active">
+								<a href="#">编程天地</a>
+							</li>
+							<li>
+								<a href="#">动漫次元</a>
+							</li>
+							<li>
+								<a href="#">电影天堂</a>
+							</li>
+						</ul>
+						<nav></nav>
+					</div>
+					<div class="col-sm-5">
+						<h2>HTML技术</h2>
+						<div class="thumbnail">
+							<img src=" img/u=3312543479,2840924628&fm=58&bpow=590&bpoh=563.jpg" width="750px" height="400px" />
+						</div>
+						<p>HTML5是Web中核心语言HTML的规范，用户使用任何手段进行网页浏览时看到的内容原本都是HTML格式的，在浏览器中通过一些技术处理将其转换成为了可识别的信息。HTML5在从前HTML4.01的基础上进行了一定的改进，虽然在技术人员在开发过程中可能不会将这些新技术投入应用，但是对于该种技术的新特性网站开发技术人员是必须要有所了解的。</p>
+						<h5>2019-09-05 18:45:35</h5>
+						<h2>CSS技术</h2>
+						<div class="thumbnail">
+							<img src=" img/u=33869634,3333232226&fm=58&bpow=220&bpoh=220.jpg" height="400px" width="750px" />
+						</div>
+						<p>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+						<h5>2019-09-05 18:45:35</h5>
+					</div>
+				</div>
+			</div>
+			<!--博客-->
+			<div class="tab-pane fade " id="blog">
+				<div class="jumbotron text-center" style="margin: 50px 0px 0px 0px;">
+					<!--切换内容-->
+					<div class="container">
+						<h1>欢迎来到我的博客</h1>
+						<p>非常乐意和大家一起交流</p>
+					</div>
+				</div>
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									HTML技术
+								</a>
+							</h2>
+							<h4><span class="label-primary" style="color: white;">简单</span>
+								<span class="label-warning" style="color: white;">易上手</span>
+								<span class="label-danger" style="color: white;">入门</span>
+							</h4>
+						</div>
+						<div class="panel-collapse collapse in" id="collapseOne">
+							<div class="panel-body">
+								<h5>起步</h5>
+								<p>超文本标记语言(Hyper Text Markup Language)，标准通用标记语言下的一个应用。HTML 不是一种编程语言，而是一种标记语言 (markup language)，是网页制作所必备的。“超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。超文本标记语言(或超文本标签语言)的结构包括“头”部分和“主体”部分，其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+								<h5>入门</h5>
+								<p>HTML5是Web中核心语言HTML的规范，用户使用任何手段进行网页浏览时看到的内容原本都是HTML格式的，在浏览器中通过一些技术处理将其转换成为了可识别的信息。HTML5在从前HTML4.01的基础上进行了一定的改进，虽然在技术人员在开发过程中可能不会将这些新技术投入应用，但是对于该种技术的新特性网站开发技术人员是必须要有所了解的。</p>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									Bootstrap教程
+								</a>
+							</h2>
+							<h4><span class="label-primary" style="color: white;">简单</span>
+								<span class="label-warning" style="color: white;">易上手</span>
+								<span class="label-danger" style="color: white;">入门</span>
+							</h4>
+						</div>
+						<div class="panel-collapse collapse in" id="collapseTwo">
+							<div class="panel-body">
+								<h5>基本结构</h5>
+								<p>Bootstrap 提供了一个带有网格系统、链接样式、背景的基本结构。这将在Bootstrap 基本结构部分详细讲解。</p>
+								<h5>CSS</h5>
+								<p>Bootstrap 自带以下特性：全局的 CSS设置、定义基本的 HTML 元素样式、可扩展的 class，以及一个先进的网格系统。这将在Bootstrap CSS部分详细讲解。</p>
+								<h5>组件</h5>
+								<p>Bootstrap 包含了十几个可重用的组件，用于创建图像、下拉菜单、导航、警告框、弹出框等等。这将在布局组件部分详细讲解。</p>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+									jQuery教程
+								</a>
+							</h2>
+							<h4><span class="label-primary" style="color: white;">简单</span>
+								<span class="label-warning" style="color: white;">易上手</span>
+								<span class="label-danger" style="color: white;">入门</span>
+							</h4>
+						</div>
+						<div class="panel-collapse collapse in" id="collapseThree">
+							<div class="panel-body">
+								<h5>起步</h5>
+								<p>超文本标记语言(Hyper Text Markup Language)，标准通用标记语言下的一个应用。HTML 不是一种编程语言，而是一种标记语言 (markup language)，是网页制作所必备的。“超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。超文本标记语言(或超文本标签语言)的结构包括“头”部分和“主体”部分，其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+								<h5>入门</h5>
+								<p>HTML5是Web中核心语言HTML的规范，用户使用任何手段进行网页浏览时看到的内容原本都是HTML格式的，在浏览器中通过一些技术处理将其转换成为了可识别的信息。HTML5在从前HTML4.01的基础上进行了一定的改进，虽然在技术人员在开发过程中可能不会将这些新技术投入应用，但是对于该种技术的新特性网站开发技术人员是必须要有所了解的。</p>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+									Javascript教程
+								</a>
+							</h2>
+							<h4><span class="label-primary" style="color: white;">简单</span>
+								<span class="label-warning" style="color: white;">易上手</span>
+								<span class="label-danger" style="color: white;">入门</span>
+							</h4>
+						</div>
+						<div class="panel-collapse collapsing" id="collapseFour">
+							<div class="panel-body">
+								<h5>基本结构</h5>
+								<p>Bootstrap 提供了一个带有网格系统、链接样式、背景的基本结构。这将在Bootstrap 基本结构部分详细讲解。</p>
+								<h5>CSS</h5>
+								<p>Bootstrap 自带以下特性：全局的 CSS设置、定义基本的 HTML 元素样式、可扩展的 class，以及一个先进的网格系统。这将在Bootstrap CSS部分详细讲解。</p>
+								<h5>组件</h5>
+								<p>Bootstrap 包含了十几个可重用的组件，用于创建图像、下拉菜单、导航、警告框、弹出框等等。这将在布局组件部分详细讲解。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="pagination">
+					<li>
+						<a href="#">&laquo;</a>
+					</li>
+					<li>
+						<a href="#">&lt;</a>
+					</li>
 					<li class="active">
-						<a href="#">编程天地</a>
+						<a href="#">1</a>
 					</li>
 					<li>
-						<a href="#">电影天地</a>
+						<a href="#">2</a>
 					</li>
 					<li>
-						<a href="#">球赛直播</a>
+						<a href="#">3</a>
 					</li>
 					<li>
-						<a href="#">游戏天地</a>
+						<a href="#">4</a>
 					</li>
-
+					<li>
+						<a href="#">5</a>
+					</li>
+					<li>
+						<a href="#">&gt;</a>
+					</li>
+					<li>
+						<a href="#">&raquo;</a>
+					</li>
 				</ul>
 			</div>
-			
-			<div class="col-sm-8">
-				<h2>HTML技术</h2>
-				<h5>HTML 教程在本教程中，你将学习如何使用 HTML 来创建站点。</h5>
-				<div><img src="img/u=3312543479,2840924628&fm=58&bpow=590&bpoh=563.jpg" class="img-responsive" /></div>
-				<p>HTML 是用来描述网页的一种语言。 HTML 指的是超文本标记语言 (Hyper Text Markup Language) HTML 不是一种编程语言，而是一种标记语言 (markup language) 标记语言是一套标记标签 (markup tag) HTML 使用标记标签来描述网页</p>
-				<hr />
-				<h2>CSS 教程</h2>
-				<h5>CSS 教程通过使用 CSS 来提升工作效率！</h5>
-				<div><img src="img/u=33869634,3333232226&fm=58&bpow=220&bpoh=220.jpg" "img-responsive"/></div>
-				<p>HTML 标签原本被设计为用于定义文档内容。通过使用 这样的标签，HTML 的初衷是表达“这是标题”、“这是段落”、“这是表格”之类的信息。同时文档布局由浏览器来完成，而不使用任何的格式化标签。 由于两种主要的浏览器（Netscape 和 Internet Explorer）不断地将新的 HTML 标签和属性（比如字体标签和颜色属性）添加到 HTML 规范中，创建文档内容清晰地独立于文档表现层的站点变得越来越困难。 为了解决这个问题，万维网联盟（W3C），这个非营利的标准化联盟，肩负起了 HTML 标准化的使命，并在 HTML 4.0 之外创造出样式（Style）。 所有的主流浏览器均支持层叠样式表。
-
-				</p>
+			<div class="tab-pane fade" id="album">
+				<div class="jumbotron" style="margin: 50px 0px 0px 0px;">
+					<div class="container">
+						<h1 align="center"><span class="label-primary">欢迎来到摄影展</span></h1>
+						<p align="center"><span class="label-success">为摄影作品投个票吧</span></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/1.jfif" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第1名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/3.jfif" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第2名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/2.jfif" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第3名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/4.png" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第4名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/5.jpg" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第5名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/6.jpg" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第6名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/7.jpg" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第7名</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div href="#" class="thumbnail">
+							<img src=" img/8.jpg" />
+							<div class="caption text-center">
+								<h3>2019摄影作品</h3>
+								<p>第8</p>
+								<p>
+									<button type="button" class="btn btn-default">查看</button>
+									<button type="button" class="btn btn-primary">投票</button>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="pagination">
+					<li>
+						<a href="#">&laquo;</a>
+					</li>
+					<li>
+						<a href="#">&lt;</a>
+					</li>
+					<li class="active">
+						<a href="#">1</a>
+					</li>
+					<li>
+						<a href="#">2</a>
+					</li>
+					<li>
+						<a href="#">3</a>
+					</li>
+					<li>
+						<a href="#">4</a>
+					</li>
+					<li>
+						<a href="#">5</a>
+					</li>
+					<li>
+						<a href="#">&gt;</a>
+					</li>
+					<li>
+						<a href="#">&raquo;</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-pane fade" id="play" style="margin: 55px 0px 0px 0px;">
+				<p>等待开发...</p>
 			</div>
 		</div>
-		<div class="jumbotron text-center" style="margin-bottom: 0px;">
-			<p>liyx&copy;1998-2019</p>
+		<!--底部屏幕-->
+		<div class="jumbotron text-center disabled" style="margin: 0px;">
+			<div class="container">
+				<h5>znbo&copy;1999-2019</h5>
+			</div>
 		</div>
-
 	</body>
-	<script src="js/jquery-1.11.0.js"></script>
-
-	<script src="js/bootstrap.js"></script>
-
+	<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+	<script type="text/javascript" src=" js/jquery-1.11.0.js"></script>
+	<!-- 包括所有已编译的插件 -->
+	<script type="text/javascript" src=" js/bootstrap.js"></script>
 </html>
